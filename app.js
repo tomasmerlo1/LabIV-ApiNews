@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+process.env.API_KEY;
 
 const Server = require('./models/server');
 
