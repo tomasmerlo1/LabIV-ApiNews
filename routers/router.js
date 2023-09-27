@@ -13,9 +13,8 @@ rutas.get('/argentinas', getNoticiasArgentinas);
 rutas.get('/palabraclave/:q', getPalabraClave);
 rutas.get('/domains/:domain', getDominio);
 rutas.get('/palabraclave/:q/:lan', getIdioma);
-rutas.get('/',get)
 rutas.get('/comerciales/:categoria', getComerciales);
-rutas.get('/source/:source',getNoticiasBBS_News);
+rutas.get('/source/:source', getNoticiasBBC_News);
 
 
 module.exports = rutas;
