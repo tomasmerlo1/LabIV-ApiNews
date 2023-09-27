@@ -7,17 +7,18 @@ if(key == undefined){
     throw new Error("La api key no puede ser")
 }
 
-const getComerciales = (req = request, res = response) => {
+const getTitulosDeNegocio = (req = request, res = response) => {
     console.log(req.params);
     const {categoria} = req.params; 
 
-    axios.get (`https://newsapi.org/v2/top-headlines/sources?category=${categoria}apiKey=${key}`)
+    axios.get (`https://newsapi.org/v2/top-headlines?country=${pais}&category=${categoria}&apiKey=${key}`)
         .then(({ status, data, statusText }) => {
             console.log({ status, data, statusText });
             res.status(200).json({
                 status,
                 data,
                 statusText,
+                pais,
                 categoria,
             });
         })
@@ -53,7 +54,7 @@ const getComerciales = (req = request, res = response) => {
         }
 
 module.exports = {
-    getComerciales,
+    getTitulosDeNegocio,
     getNoticiasBBC_News
 };
 
