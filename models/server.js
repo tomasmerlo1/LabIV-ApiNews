@@ -25,7 +25,7 @@ class Server{
             res.send('Home');
         });
 
-        this.app.use('/api/v1/news', require('../routes/news'));
+        this.app.use('/noticias', require('../routes/news'));
     }
     
     listen(){

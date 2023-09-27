@@ -31,11 +31,11 @@ const getNoticiasArgentinas = (req = request, res = response) => {
 
 }
 
-const getPalabraClave = (req = request, res = response) => {
+/*const getPalabraClave = (req = request, res = response) => {
     console.log(req.params);
-    const { q } = req.query;
+    const { q } = req.params;
 
-    axios.get(`https://newsapi.org/v2/everything?country=ar&apiKey=${key}&q=${q}`)
+    axios.get(`https://newsapi.org/v2/everythings?apiKey=${key}&q=${q}`)
         .then(({ status, data, statusText }) => {
             // handle success
             console.log({ status, data, statusText });
@@ -53,12 +53,10 @@ const getPalabraClave = (req = request, res = response) => {
                 status:400,
                 msg: 'Error inesperado'
             });
-        });
+        });*/
 
 
-}
 
 module.exports = {
-    getNoticiasArgentinas, 
-    getPalabraClave
+    getNoticiasArgentinas
 };
