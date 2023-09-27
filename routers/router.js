@@ -13,7 +13,7 @@ rutas.get('/argentinas', getNoticiasArgentinas);
 rutas.get('/palabraclave/:q', getPalabraClave);
 rutas.get('/domains/:domain', getDominio);
 rutas.get('/palabraclave/:q/:lan', getIdioma);
-rutas.get('/category/:categoria', getComerciales);
+rutas.get('/category/:cate', getComerciales);
 rutas.get('/source/:source', getNoticiasBBC_News);
 
 
