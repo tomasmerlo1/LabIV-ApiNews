@@ -1,9 +1,11 @@
 const axios = require('axios');
 const { request, response } = require('express')
 
-const key = 'bc1faf88178f4e458017474fed0bd5bb';
+const key = process.env.API_KEY;
 
-
+if(key == undefined){
+    throw new Error("La api key no puede ser")
+}
 const getNoticiasArgentinas = (req = request, res = response) => {
     console.log(req.params);
     const { name } = req.params;
@@ -35,7 +37,7 @@ const getPalabraClave = (req = request, res = response) => {
     console.log(req.params);
     const { q } = req.params;
 
-    axios.get(`https://newsapi.org/v2/everythings?apiKey=${key}&q=${q}`)
+    axios.get(`https://newsapi.org/v2/everything?apiKey=${key}&q=${q}`)
         .then(({ status, data, statusText }) => {
             // handle success
             console.log({ status, data, statusText });
@@ -57,9 +59,9 @@ const getPalabraClave = (req = request, res = response) => {
 
 
     }
-    
 
 module.exports = {
+
     getNoticiasArgentinas,
     getPalabraClave
 };
