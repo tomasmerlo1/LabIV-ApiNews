@@ -7,12 +7,6 @@ if(key == undefined){
     throw new Error("La api key no puede ser")
 }
 
-const 
-const key = process.env.API_KEY;
-
-if(key == undefined){
-    throw new Error("La api key no puede ser")
-}
 const getComerciales = (req = request, res = response) => {
     console.log(req.params);
     const {categoria} = req.params; 
