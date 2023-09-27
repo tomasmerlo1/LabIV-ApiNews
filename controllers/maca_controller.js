@@ -9,16 +9,16 @@ if(key == undefined){
 
 const getComerciales = (req = request, res = response) => {
     console.log(req.params);
-    const {q} = req.params; 
+    const {categoria} = req.params; 
 
-    axios.get (`https://newsapi.org/v2/top-headlines/sources?category=${q}apiKey=${key}`)
+    axios.get (`https://newsapi.org/v2/top-headlines/sources?category=${categoria}&apiKey=${key}`)
         .then(({ status, data, statusText }) => {
             console.log({ status, data, statusText });
             res.status(200).json({
                 status,
                 data,
                 statusText,
-                q,
+                categoria,
             });
         })
         .catch((error) => {
