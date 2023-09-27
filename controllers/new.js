@@ -31,7 +31,7 @@ const getNoticiasArgentinas = (req = request, res = response) => {
 
 }
 
-/*const getPalabraClave = (req = request, res = response) => {
+const getPalabraClave = (req = request, res = response) => {
     console.log(req.params);
     const { q } = req.params;
 
@@ -53,10 +53,13 @@ const getNoticiasArgentinas = (req = request, res = response) => {
                 status:400,
                 msg: 'Error inesperado'
             });
-        });*/
+        });
 
 
+    }
+    
 
 module.exports = {
-    getNoticiasArgentinas
+    getNoticiasArgentinas,
+    getPalabraClave
 };
