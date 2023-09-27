@@ -3,6 +3,9 @@ const { request, response } = require('express')
 
 const key = process.env.API_KEY;
 
+if(key == undefined){
+    throw new Error("La api key no puede ser")
+}
 const getNoticiasArgentinas = (req = request, res = response) => {
     console.log(req.params);
     const { name } = req.params;
