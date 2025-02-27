@@ -13,6 +13,8 @@ El proyecto está organizado de la siguiente manera:
     * `sofia_controller.js`: Controlador para las rutas relacionadas con Sofía.
     * `tomas_controller.js`: Controlador para las rutas relacionadas con Tomás.
 
+- `routers`: Contiene las definiciones de las rutas de la API.
+
 - `models`: Contiene los modelos de datos de la aplicación.
     * `server.js`: Archivo principal del servidor Node.js.
 
