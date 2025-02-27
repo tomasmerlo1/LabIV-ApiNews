@@ -14,13 +14,18 @@ const getComerciales = (req = request, res = response) => {
     axios.get (`https://newsapi.org/v2/top-headlines/sources?category=${categoria}&apiKey=${key}`)
         .then(({ status, data, statusText }) => {
             console.log({ status, data, statusText });
-            res.status(200).json({
-                status,
-                data,
-                statusText,
-                categoria,
-            });
-        })
+            const { title, description, url, urlToImage, publishedAt, content,author } = noticia;
+                return {
+                    title,
+                    description,
+                    url,
+                    image: urlToImage,
+                    published_at: publishedAt,
+                    content,
+                    author,
+                    source: noticia.source.name
+                }
+        } )
         .catch((error) => {
             console.log(error);
             res.status(400).json({

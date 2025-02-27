@@ -10,7 +10,7 @@ const getNoticiasArgentinas = (req = request, res = response) => {
     console.log(req.params);
     const { name } = req.params;
 
-    axios.get(`https://newsapi.org/v2/top-headlines?country=ar&apiKey=${key}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${key}`)
         .then(({ status, data, statusText }) => {
             
             console.log({ status, data, statusText });
@@ -24,10 +24,19 @@ const getNoticiasArgentinas = (req = request, res = response) => {
         .catch((error) => {
             
             console.log(error);
-            res.status(400).json({
-                status:400,
-                msg: 'Error inesperado'
-            });
+            res.status(400).json(data.articles.map((noticia) => {
+                const { title, description, url, urlToImage, publishedAt, content,author } = noticia;
+                return {
+                    title,
+                    description,
+                    url,
+                    image: urlToImage,
+                    published_at: publishedAt,
+                    content,
+                    author,
+                    source: noticia.source.name
+                }
+            }));
         });
 
 
@@ -41,12 +50,24 @@ const getPalabraClave = (req = request, res = response) => {
         .then(({ status, data, statusText }) => {
             
             console.log({ status, data, statusText });
-            res.status(200).json({
-                status,
-                data,
-                statusText,
-                q,
-            });
+            
+        
+            res.status(200).json(
+                data.articles.map((noticia) => {
+                    const { title, description, url, urlToImage, publishedAt, content,author } = noticia;
+                    return {
+                        title,
+                        description,
+                        url,
+                        image: urlToImage,
+                        published_at: publishedAt,
+                        content,
+                        author,
+                        source: noticia.source.name
+                    }
+                }
+            )
+            );
         })
         .catch((error) => {
             

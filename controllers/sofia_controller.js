@@ -15,12 +15,21 @@ const getDominio = (req = request, res = response) => {
         .then(({ status, data, statusText }) => {
             // handle success
             console.log({ status, data, statusText });
-            res.status(200).json({
-                status,
-                data,
-                statusText,
-                domain,
-            });
+        
+            res.status(200).json(data.articles.map((noticia) => {
+                const { title, description, url, urlToImage, publishedAt, content,author } = noticia;
+                return {
+                    title,
+                    description,
+                    url,
+                    image: urlToImage,
+                    published_at: publishedAt,
+                    content,
+                    author,
+                    source: noticia.source.name
+                }
+            }
+        ));
         })
         .catch((error) => {
             // handle error
