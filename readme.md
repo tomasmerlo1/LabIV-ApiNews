@@ -23,7 +23,7 @@ El proyecto está organizado de la siguiente manera:
 
 El proyecto utiliza las siguientes dependencias:
 
-* {
+* ```bash {
   "name": "proyecto-api_news",
   "version": "1.0.0",
   "description": "Proyecto con node y con api de noticias.",
@@ -43,6 +43,8 @@ El proyecto utiliza las siguientes dependencias:
     "nodemon": "^3.0.1"
   }
 }
+
+
 
 ## Configuración
 
